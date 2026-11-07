@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Autores</title>
+</head>
+<body>
+
+    <h1>Autores</h1>
+
+    {% for autor in autores %}
+        <h2>{{ autor }}</h2>
+        <a href="{% url 'autor' autor.id %}">Livros Escritos</a> 
+       
+    {% empty %}
+        <p>Nenhum Autor Cadastrado</p>
+    {% endfor %}
+
+</body>
+</html>

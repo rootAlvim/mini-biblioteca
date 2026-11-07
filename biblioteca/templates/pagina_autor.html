@@ -10,6 +10,8 @@
     {% for livro in livros %}
         <h2>{{ livro.titulo }}</h2>
         <p>Ano: {{ livro.ano_publicacao }}</p>
+    {% empty %}
+        <p>Esse autor não possui livros no momento</p>
     {% endfor %}
 </body>
 </html>
