@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina do autor </title>
+    <title>Página do autor</title>
 </head>
 <body>
-    <h1>Livros de {{autor}}</h1>
+    <h1>Livros de {{ autor }}</h1>
     {% for livro in livros %}
         <h2>{{ livro.titulo }}</h2>
         <p>Ano: {{ livro.ano_publicacao }}</p>
+        <p><a href="{% url 'editar_livro' livro.id %}">Editar Livro</a></p>
     {% empty %}
         <p>Esse autor não possui livros no momento</p>
     {% endfor %}
+    <p><a href="{% url 'novo_livro' %}">Novo livro</a></p>
 </body>
 </html>

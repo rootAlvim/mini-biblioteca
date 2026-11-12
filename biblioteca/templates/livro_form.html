@@ -1,0 +1,50 @@
+<h1>{{ titulo_pagina }}</h1>
+
+<form method="post" action="{{ action_url }}">
+    {% csrf_token %}
+
+    <div>
+        {{ form.titulo.label_tag }}
+        {{ form.titulo }}
+        {% for error in form.titulo.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.autor.label_tag }}
+        {{ form.autor }}
+        {% for error in form.autor.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.ano_publicacao.label_tag }}
+        {{ form.ano_publicacao }}
+        {% for error in form.ano_publicacao.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ form.disponivel.label_tag }}
+        {{ form.disponivel }}
+    </div>
+
+    <div>
+        {{ form.categorias.label_tag }}
+        {{ form.categorias }}
+        {% for error in form.categorias.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    <button type="submit">
+        {% if modo == 'editar' %}
+            Editar livro
+        {% else %}
+            Novo livro
+        {% endif %}
+    </button>
+</form>

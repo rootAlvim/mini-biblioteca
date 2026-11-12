@@ -7,17 +7,17 @@
 
     <h1>Livros</h1>
 
+    <p><a href="{% url 'novo_livro' %}">Novo livro</a></p>
+
     {% for livro in livros %}
         <h2>{{ livro.titulo }}</h2>
         <p>Autor: <a href="{% url 'autor' livro.autor.id %}">{{ livro.autor }}</a></p>
-        
         <p>Ano: {{ livro.ano_publicacao }}</p>
+        <p><a href="{% url 'editar_livro' livro.id %}">Editar {{livro.titulo}}</a></p>
     {% empty %}
         <p>Nenhum Livro Cadastrado</p>
     {% endfor %}
-    <h2><a href="{% url 'criar-autor'%}">Novo Autor</a></h2>
-     
-
+    <h2><a href="{% url 'criar-autor' %}">Novo Autor</a></h2>
 
 </body>
 </html>
